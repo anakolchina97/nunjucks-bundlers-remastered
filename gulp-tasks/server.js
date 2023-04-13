@@ -3,11 +3,12 @@ import webpackHotMiddleware from 'webpack-hot-middleware';
 import webpack from 'webpack';
 import notifier from 'node-notifier';
 
-import PATHS from '../paths';
-import webpackConfig from '../webpack.config';
-import { hmrEnabled } from '../config';
+import PATHS from '../paths.js';
+import webpackConfig from '../webpack.config.js';
+import { hmrEnabled } from '../config.js';
 
-const browserSync = require('browser-sync').create();
+import browserSync from 'browser-sync';
+browserSync.create();
 const bundler = webpack(webpackConfig);
 
 let watchFiles = [PATHS.build.styles + '*.css', PATHS.build.html + '/*.html'];
@@ -24,18 +25,6 @@ export default function server() {
 				? [
 						webpackDevMiddleware(bundler, {
 							publicPath: webpackConfig.output.publicPath,
-							logLevel: 'error',
-							reporter: (middlewareOptions, options) => {
-								const { state, stats } = options;
-								if (state) {
-									if (stats.hasErrors()) {
-										notifier.notify({
-											title: 'Webpack compilation error',
-											message: stats.compilation.errors[0].error.toString(),
-										});
-									}
-								}
-							},
 						}),
 						webpackHotMiddleware(bundler, {
 							log: false,

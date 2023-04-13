@@ -1,5 +1,3 @@
-module.exports = {
-	addAwesome: function (str) {
-		return str + ' Awesome!';
-	},
+export const addAwesome = str => {
+	return str + ' Awesome!';
 };

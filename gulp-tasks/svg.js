@@ -4,7 +4,7 @@ import svgstore from 'gulp-svgstore';
 import svgmin from 'gulp-svgmin';
 import path from 'path';
 
-import PATHS from '../paths';
+import PATHS from '../paths.js';
 
 export default function svg() {
 	return gulp

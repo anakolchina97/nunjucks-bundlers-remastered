@@ -1,15 +1,15 @@
 import gulp from 'gulp';
-import clean from './gulp-tasks/clean';
-import html from './gulp-tasks/html';
-import styles from './gulp-tasks/styles';
-import fonts from './gulp-tasks/fonts';
-import assetsVersion from './gulp-tasks/assets-version';
-import images from './gulp-tasks/images';
-import svg from './gulp-tasks/svg';
-import webpack from './gulp-tasks/webpack';
-import zip from './gulp-tasks/zip';
-import watch from './gulp-tasks/watch';
-import server from './gulp-tasks/server';
+import clean from './gulp-tasks/clean.js';
+import html from './gulp-tasks/html.js';
+import styles from './gulp-tasks/styles.js';
+import fonts from './gulp-tasks/fonts.js';
+import assetsVersion from './gulp-tasks/assets-version.js';
+import images from './gulp-tasks/images.js';
+import svg from './gulp-tasks/svg.js';
+import webpack from './gulp-tasks/webpack.js';
+import zip from './gulp-tasks/zip.js';
+import watch from './gulp-tasks/watch.js';
+import server from './gulp-tasks/server.js';
 
 gulp.task('build', gulp.parallel(html, styles, fonts, images, svg, webpack));
 

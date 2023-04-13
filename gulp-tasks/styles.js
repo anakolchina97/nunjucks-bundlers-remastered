@@ -11,10 +11,10 @@ import gulpif from 'gulp-if';
 import log from 'fancy-log';
 import colors from 'ansi-colors';
 
-import PATHS from '../paths';
-import { PRODUCTION } from '../config';
+import PATHS from '../paths.js';
+import { PRODUCTION } from '../config.js';
 
-const sass = require('gulp-dart-sass');
+import sass from 'gulp-dart-sass';
 
 const PROCESSORS = [
 	autoprefixer({

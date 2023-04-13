@@ -1,7 +1,7 @@
 import gulp from 'gulp';
 import gulpZip from 'gulp-zip';
 
-import PATHS from '../paths';
+import PATHS from '../paths.js';
 
 export default function zipArchive() {
 	return gulp

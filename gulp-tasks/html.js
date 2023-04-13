@@ -7,12 +7,14 @@ import minifyInline from 'gulp-minify-inline-scripts';
 import gulpif from 'gulp-if';
 import log from 'fancy-log';
 import colors from 'ansi-colors';
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
 
-import { PRODUCTION } from '../config';
-import PATHS from '../paths';
+import { PRODUCTION } from '../config.js';
+import PATHS from '../paths.js';
+
 import * as extensions from '../src/templates/lib/extensions.js';
-import filters from '../src/templates/lib/filters.js';
-import functions from '../src/templates/lib/functions.js';
+import * as functions from '../src/templates/lib/functions.js';
 
 export default function html() {
 	delete require.cache[require.resolve('../global-data.json')];
@@ -34,12 +36,13 @@ export default function html() {
 		.pipe(
 			nunjucksRender({
 				src: PATHS.src.templates,
-				data: {
-					DEVELOP: !PRODUCTION,
-					...globalData,
-				},
+				data: Object.assign(
+					{
+						DEVELOP: !PRODUCTION,
+					},
+					globalData
+				),
 				extensions,
-				filters,
 				functions,
 				trimBlocks: true,
 				lstripBlocks: true,

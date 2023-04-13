@@ -2,11 +2,17 @@
 import webpack from 'webpack';
 import path from 'path';
 
-import { PRODUCTION, hmrEnabled } from './config';
-import paths from './paths';
+import { PRODUCTION, hmrEnabled } from './config.js';
+import paths from './paths.js';
+
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const entryPoints = {
-	bundle: path.resolve(__dirname, paths.src.scripts),
+	bundle: path.join(__dirname, paths.src.scripts),
 };
 
 const hotMiddlewareString = 'webpack-hot-middleware/client?quiet=true&noInfo=true';
@@ -31,7 +37,7 @@ export const config = {
 					path.resolve(__dirname, 'src/assets/js'),
 					path.resolve(__dirname, 'node_modules/gsap'),
 				],
-				use: ['babel-loader', 'eslint-loader']
+				use: ['babel-loader'],
 			},
 			{
 				test: /\.json$/,
@@ -44,7 +50,7 @@ export const config = {
 		modules: ['node_modules'],
 	},
 	plugins: PRODUCTION ? [] : [new webpack.HotModuleReplacementPlugin()],
-	devtool: PRODUCTION ? false : '#eval',
+	devtool: 'eval',
 	mode: PRODUCTION ? 'production' : 'development',
 	optimization: {
 		minimize: PRODUCTION,

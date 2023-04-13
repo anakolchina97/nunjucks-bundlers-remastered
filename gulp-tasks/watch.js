@@ -1,11 +1,11 @@
 import gulpWatch from 'gulp-watch';
 
-import PATHS from '../paths';
-import html from './html';
-import styles from './styles';
-import fonts from './fonts';
-import images from './images';
-import svg from './svg';
+import PATHS from '../paths.js';
+import html from './html.js';
+import styles from './styles.js';
+import fonts from './fonts.js';
+import images from './images.js';
+import svg from './svg.js';
 
 export default function watch() {
 	gulpWatch(PATHS.watch.njk, html);

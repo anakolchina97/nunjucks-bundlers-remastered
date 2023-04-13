@@ -2,8 +2,8 @@ import gulp from 'gulp';
 import gulpif from 'gulp-if';
 import imagemin from 'gulp-imagemin';
 
-import PATHS from '../paths';
-import * as CONFIG from '../config';
+import PATHS from '../paths.js';
+import * as CONFIG from '../config.js';
 
 export default function images() {
 	return gulp
@@ -11,7 +11,7 @@ export default function images() {
 		.pipe(
 			gulpif(
 				CONFIG.shouldCompressImages,
-				imagemin([imagemin.svgo({ plugins: [{ removeViewBox: false }] })], {
+				imagemin([{ plugins: [{ removeViewBox: false }] }], {
 					verbose: true,
 				})
 			)

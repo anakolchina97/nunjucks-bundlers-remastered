@@ -1,10 +1,11 @@
 import gulp from 'gulp';
-import PATHS from '../paths';
-import { PRODUCTION } from '../config';
 
-var replace = require('gulp-replace');
-var fs = require('fs');
-const md5File = require('md5-file');
+import PATHS from '../paths.js';
+import { PRODUCTION } from '../config.js';
+
+import replace from 'gulp-replace';
+import fs from 'fs';
+import md5File from 'md5-file';
 
 const buildPath = PATHS.build.html.replace(/\/$/, '');
 

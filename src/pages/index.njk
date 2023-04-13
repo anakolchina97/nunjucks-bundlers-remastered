@@ -3,10 +3,6 @@
 {% from "../components/button/button.njk" import button %}
 {% from "../components/icon/icon.njk" import icon %}
 
-{# Пример расширения существующего блока #}
-{# Например можно использовать для добавления уникальных тайтлов для каждой страницы #}
-{# {% block title %}Home / {{ super() }}{% endblock title %} #}
-
 {% block content %}
 
 	{% include '../includes/header/header.njk' %}
@@ -63,7 +59,7 @@
 			{{ icon({
 				iconName: 'chat',
 				className: 'icon',
-				attributes: 'viewBox="0 0 20 20" style="width: 40px; height: 40px; fill: #212121;"'
+				attributes: 'viewBox="0 0 20 20" style="width: 40px; height: 40px; fill: #red;"'
 			}) }}
 
 		</div>

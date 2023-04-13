@@ -1,7 +1,7 @@
-import del from 'del';
+import { deleteAsync } from 'del';
 
-import PATHS from '../paths';
+import PATHS from '../paths.js';
 
 export default function clean() {
-	return del(PATHS.clean);
+	return deleteAsync(PATHS.clean);
 }

@@ -1,7 +1,7 @@
 import Assets from 'assets';
 import path from 'path';
 
-import PATHS from '../../../paths';
+import PATHS from '../../../paths.js';
 
 const resolver = new Assets();
 
