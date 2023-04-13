@@ -88,10 +88,5 @@
     "src/**/*.{scss,sass,json}": [
       "npm run prettier"
     ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
   }
 }
