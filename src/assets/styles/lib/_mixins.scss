@@ -110,49 +110,49 @@
 }
 
 @mixin scrollbar {
-	& ::-moz-scrollbar {
+	&::-moz-scrollbar {
 		@content;
 	}
-	& ::-webkit-scrollbar {
+	&::-webkit-scrollbar {
 		@content;
 	}
-	& ::scrollbar {
+	&::scrollbar {
 		@content;
 	}
 }
 
 @mixin scrollbar-track {
-	& ::-moz-scrollbar-track {
+	&::-moz-scrollbar-track {
 		@content;
 	}
-	& ::-webkit-scrollbar-track {
+	&::-webkit-scrollbar-track {
 		@content;
 	}
-	& ::scrollbar-track {
+	&::scrollbar-track {
 		@content;
 	}
 }
 
 @mixin scrollbar-thumb {
-	& ::-moz-scrollbar-thumb {
+	&::-moz-scrollbar-thumb {
 		@content;
 	}
-	& ::-webkit-scrollbar-thumb {
+	&::-webkit-scrollbar-thumb {
 		@content;
 	}
-	& ::scrollbar-thumb {
+	&::scrollbar-thumb {
 		@content;
 	}
 }
 
 @mixin scrollbar-track-piece {
-	& ::-moz-scrollbar-track-piece {
+	&::-moz-scrollbar-track-piece {
 		@content;
 	}
-	& ::-webkit-scrollbar-track-piece {
+	&::-webkit-scrollbar-track-piece {
 		@content;
 	}
-	& ::scrollbar-track-piece {
+	&::scrollbar-track-piece {
 		@content;
 	}
 }
@@ -195,23 +195,9 @@
 	}
 }
 
-/* example */
-/* +arr(500,50, #000, l) */
-/* +arr(500,50, #000, bl) */
-
 @mixin br($radius) {
 	border-radius: $radius;
 }
-
-/* Retina Backgrounds for Compass */
-/* by:              Gaya Kessler */
-/* last update:     03/11/14 */
-/* url: https://github.com/pixelmord/Retina-Sprites-for-Compass */
-/* */
-/* Usage: */
-/* 1. create background image for pixel ratio 1 screens and put it somewhere in your images folder. */
-/* 2. create background image for pixel ratio 2 screens and put it somewhere in your images folder. */
-/* 3. include the background-image property in your Sass/Scss using: '@include background-retina(<ratio-1-imagefile>, <ratio-2-imagefile>)' */
 
 @mixin background-retina($normal, $retina, $contain: false) {
 	background-image: image-url($normal);
@@ -286,5 +272,61 @@
 @mixin phone {
 	@at-root html._phone #{&} {
 		@content;
+	}
+}
+
+@function em($px, $context: 16) {
+	@return round($px / $context * 1em * 10000) / 10000;
+}
+
+@function rem($px, $context: 16) {
+	@return round($px / $context * 1rem * 10000) / 10000;
+}
+
+@function vw($px, $width: 1920) {
+	@return round($px / $width * 100vw * 10000) / 10000;
+}
+
+@function vh($px, $height: 1080) {
+	@return round($px / $height * 100vh * 10000) / 10000;
+}
+
+@mixin reset-btn {
+	padding: 0;
+	border: 0;
+	outline: 0;
+	background: 0;
+	font: inherit;
+	cursor: pointer;
+}
+
+@function strip-unit($number) {
+	@if (type-of($number) == 'number' and not unitless($number)) {
+		@return $number / ($number * 0 + 1);
+	}
+	@return $number;
+}
+
+@mixin smoothValue(
+	$prop,
+	$min,
+	$max,
+	$minViewPort: $mobile,
+	$maxViewPort: $desktop,
+	$minScreen: true
+) {
+	@if $minScreen {
+		@media (min-width: $minViewPort) {
+			#{$prop}: $max;
+		}
+	}
+	@media (min-width: $minViewPort) and (max-width: ($maxViewPort - 1)) {
+		#{$prop}: calc(
+			#{$min} + #{strip-unit($max - $min)} *
+				((100vw - #{$minViewPort}) / (#{strip-unit($maxViewPort - $minViewPort)}))
+		);
+	}
+	@media (max-width: ($minViewPort - 1)) {
+		#{$prop}: $min;
 	}
 }
