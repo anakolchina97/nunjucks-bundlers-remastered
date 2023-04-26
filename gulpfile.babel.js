@@ -10,9 +10,10 @@ import webpack from './gulp-tasks/webpack.js';
 import webpTask from './gulp-tasks/webp.js';
 import zip from './gulp-tasks/zip.js';
 import watch from './gulp-tasks/watch.js';
+import json from './gulp-tasks/json.js';
 import server from './gulp-tasks/server.js';
 
-gulp.task('build', gulp.parallel(html, styles, fonts, images, svg, webpack, webpTask));
+gulp.task('build', gulp.parallel(html, styles, fonts, images, svg, webpack, json, webpTask));
 
 gulp.task('production', gulp.series(clean, 'build', assetsVersion));
 
