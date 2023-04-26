@@ -26,7 +26,7 @@
     "browser-sync": "^2.29.1",
     "cross-env": "^7.0.3",
     "del": "^7.0.0",
-    "eslint": "^8.38.0",
+    "eslint": "^8.39.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-gsap": "^3.0.0",
     "eslint-config-prettier": "^8.8.0",
@@ -54,20 +54,20 @@
     "gulp-zip": "^5.1.0",
     "husky": "^8.0.3",
     "json-loader": "^0.5.7",
-    "lint-staged": "^13.2.1",
+    "lint-staged": "^13.2.2",
     "md5-file": "^5.0.0",
     "node-notifier": "^10.0.1",
-    "postcss": "^8.4.21",
+    "postcss": "^8.4.23",
     "postcss-assets": "^6.0.0",
     "postcss-sprites": "^4.2.1",
-    "prettier": "^2.8.7",
+    "prettier": "^2.8.8",
     "raw-loader": "^4.0.2",
     "static-eval": "^2.1.0",
-    "stylelint": "^15.4.0",
+    "stylelint": "^15.6.0",
     "stylelint-config-prettier": "^9.0.5",
     "stylelint-prettier": "^3.0.0",
     "vinyl-named": "^1.1.0",
-    "webpack": "^5.79.0",
+    "webpack": "^5.81.0",
     "webpack-dev-middleware": "^6.0.2",
     "webpack-hot-middleware": "^2.25.3",
     "yargs": "^17.7.1"
@@ -79,7 +79,7 @@
     "gsap": "^3.11.5",
     "gulp-dart-sass": "^1.1.0",
     "regenerator-runtime": "^0.13.11",
-    "sass": "^1.62.0"
+    "sass": "^1.62.1"
   },
   "lint-staged": {
     "src/assets/js/**/*.js": [
