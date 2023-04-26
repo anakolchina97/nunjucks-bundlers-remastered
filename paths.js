@@ -9,6 +9,7 @@ export default {
 		svg: 'build/assets/svg/',
 		json: 'build/assets/json/',
 		videos: 'build/assets/video/',
+		pdf: 'build/assets/pdf/',
 	},
 	src: {
 		templates: './src/',
@@ -23,6 +24,7 @@ export default {
 		svg: 'src/assets/svg/**/*.svg',
 		json: 'data/**/*.json',
 		videos: 'src/assets/video/**/*.*',
+		pdf: 'src/assets/pdf/**/*.*',
 	},
 	watch: {
 		njk: ['src/**/*.njk', 'global-data.json'],
@@ -33,6 +35,7 @@ export default {
 		sprites: 'src/assets/images/sprites/*.png',
 		svg: 'src/assets/svg/**/*.svg',
 		json: 'data/**/*.json',
+		pdf: 'src/assets/pdf/**/*.*',
 	},
 	clean: 'build/',
 };
