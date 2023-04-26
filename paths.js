@@ -15,6 +15,7 @@ export default {
 		scripts: 'src/assets/js/index.js',
 		styles: 'src/assets/styles/styles.scss',
 		images: 'src/assets/images/**/*.*',
+		rasterImages: 'src/assets/images/**/*.{jpg,png}',
 		imagesInline: 'src/assets/images/inline/',
 		fonts: 'src/assets/fonts/**/*.*',
 		sprites: 'src/assets/images/sprites/*.png',

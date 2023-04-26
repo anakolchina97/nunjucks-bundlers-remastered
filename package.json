@@ -78,6 +78,7 @@
     "global": "^4.4.0",
     "gsap": "^3.11.5",
     "gulp-dart-sass": "^1.1.0",
+    "imagemin-webp": "^8.0.0",
     "regenerator-runtime": "^0.13.11",
     "sass": "^1.62.1"
   },
